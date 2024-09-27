@@ -76,7 +76,7 @@ suite('Unit Tests', function () {
     // #10
     test('#approximately', function () {
       assert.approximately(weirdNumbers(0.5), 1, 0.5); // Allowing a margin of 0.5
-      assert.approximately(weirdNumbers(0.2), 1, 0.8); // Allowing a margin of 0.2
+      assert.approximately(weirdNumbers(0.2), 1, 0.8); // Allowing a margin of 0.8 to accomodate all scenarios
     });
   });
 
@@ -161,10 +161,10 @@ suite('Unit Tests', function () {
     });
     // #18
     test('#instanceOf, #notInstanceOf', function () {
-      assert.fail(myCar, Plane);
-      assert.fail(airlinePlane, Plane);
-      assert.fail(airlinePlane, Object);
-      assert.fail(myCar.wheels, String);
+      assert.notInstanceOf(myCar, Plane);
+      assert.instanceOf(airlinePlane, Plane);
+      assert.instanceOf(airlinePlane, Object);
+      assert.notInstanceOf(myCar.wheels, String);
     });
   });
 
